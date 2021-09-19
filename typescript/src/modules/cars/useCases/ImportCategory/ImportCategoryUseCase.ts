@@ -11,7 +11,7 @@ interface IImportCategory {
 class ImportCategoryUseCase {
   constructor(private categoriesRepository: ICategoriesRepository) {}
 
-  loadCategories(file: Express.Multer.File): Promise<IImportCategory[]> {
+  async loadCategories(file: Express.Multer.File): Promise<IImportCategory[]> {
     return new Promise((resolve, reject) => {
       const stream = fs.createReadStream(file.path);
       const categories: IImportCategory[] = [];
