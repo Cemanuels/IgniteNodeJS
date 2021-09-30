@@ -80,6 +80,43 @@
         }
       }
     },
+    "/categories/{category_id}": {
+      "delete": {
+        "tags": ["Category"],
+        "Summary": "Delete a category",
+        "description": "Delete a category by id",
+        "parameters": {
+          "name": "category_id",
+          "in": "path",
+          "description": "Category ID",
+          "required": "true",
+          "schema": {
+            "type": "uuid"
+          }
+        }
+      }
+    },
+    "/categories/import": {
+      "post": {
+        "tags": ["Category"],
+        "summary": "Upload a new category",
+        "description": "Upload a new category in category repository",
+        "requestBody": {
+          "content": {
+            "application/octet-stream": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
     "/specifications": {
       "post": {
         "tags": ["Specification"],
