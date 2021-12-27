@@ -4,9 +4,9 @@ import { AppError } from "../../errors/AppError";
 
 export function errorHandler(
   error: Error,
-  request: Request,
+  _request: Request,
   response: Response,
-  next: NextFunction
+  _next: NextFunction
 ): Response {
   if (error instanceof AppError) {
     return response.status(error.statusCode).json({ message: error.message });
