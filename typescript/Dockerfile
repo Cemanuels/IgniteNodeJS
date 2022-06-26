@@ -1,11 +1,17 @@
-FROM node
+FROM node:16
 
-WORKDIR /usr/app
+WORKDIR /usr/src/app
 
-COPY package.json ./
+COPY package*.json ./
 
 RUN npm install
 
-COPY . .
+RUN npm ci --only=production
 
-CMD ["npm", "run", "dev"]
+RUN npm run tsc
+
+COPY ./dist .
+
+EXPOSE 8080
+
+CMD ["node", "server.js"]
