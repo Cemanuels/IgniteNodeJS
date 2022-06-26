@@ -8,7 +8,7 @@ RUN npm install
 
 RUN npm ci --only=production
 
-RUN npm run tsc
+RUN npm run build
 
 COPY ./dist .
 
