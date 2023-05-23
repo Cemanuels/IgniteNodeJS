@@ -1,5 +1,5 @@
 version: "3.7"
-
+name: rentx
 services:
   database_ignite:
     image: postgres
