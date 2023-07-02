@@ -3,12 +3,13 @@ import express from "express";
 import "express-async-errors";
 import swaggerUi from "swagger-ui-express";
 
-import "./database";
-import "./shared/container";
+import "@shared/infra/typeorm";
+import "@shared/container";
 
-import { routes } from "./routes";
-import { errorHandler } from "./shared/middlewares/errorHandler";
-import swaggerFile from "./swagger.json";
+import { routes } from "@shared/infra/http/routes";
+import { errorHandler } from "@shared/middlewares/errorHandler";
+
+import swaggerFile from "../../../swagger.json";
 
 const app = express();
 
